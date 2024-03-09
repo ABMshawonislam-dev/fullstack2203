@@ -14,6 +14,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  otp: {
+    type: String,
+  },
   role: {
     type: String,
     enum: ["user", "merchant", "admin"],

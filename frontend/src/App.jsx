@@ -2,14 +2,14 @@ import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import axios from "axios";
 function App() {
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     console.log("Success:", values);
 
-    axios.post(
+    let data = await axios.post(
       "http://localhost:8000/api/v1/auth/registration",
       {
         email: values.email,
-        name: values.username,
+        username: values.username,
         password: values.password,
       },
       {
@@ -18,6 +18,8 @@ function App() {
         },
       }
     );
+
+    console.log(data);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);

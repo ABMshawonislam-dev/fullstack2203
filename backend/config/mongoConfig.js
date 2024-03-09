@@ -7,4 +7,6 @@ let mongoConfig = () => {
     .then(() => console.log("Connected!"));
 };
 
+// mongodb+srv://ecom:YZJ2EveH7ET3EtC0@cluster0.z0jh60i.mongodb.net/ecommerce?retryWrites=true&w=majority
+
 module.exports = mongoConfig;
