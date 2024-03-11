@@ -12,9 +12,9 @@ let registrationController = async (req, res) => {
   let findEmail = await User.findOne({ email: email });
 
   if (findEmail) {
-    if (findEmail.otp == otp) {
+    if (!findEmail.isEmailVarified && findEmail.otp == otp) {
       console.log("milse");
-      await User.findOneAndUpdate({ email: email }, { otp: "" });
+      await User.findOneAndUpdate({ email: email }, { otp: "",isEmailVarified:true });
       res.send({ success: "Otp  Matched" });
     } else {
       console.log("mile nai");

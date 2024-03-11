@@ -59,7 +59,7 @@ let registrationController = async (req, res) => {
           from: "shawon.cit.bd@gmail.com", // sender address
           to: email, // list of receivers
           subject: "Email Varification OTP", // Subject line
-          html: `<p>Use this otp for varify your email <b>Otp:</b>${otp}</p>`, // html body
+          html: `<a href="http://localhost:5173/otpvarification/${email}/${otp}">Click for email varification</a>`, // html body
         });
 
         res.send({
