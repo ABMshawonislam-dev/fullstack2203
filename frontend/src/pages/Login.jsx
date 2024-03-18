@@ -2,8 +2,11 @@ import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { activeUser } from "../slices/userSlice";
+import {  useDispatch } from "react-redux";
 const Login = () => {
   let navigate = useNavigate();
+  let diapatch = useDispatch()
 
   const onFinish = async (values) => {
     console.log("Success:", values);
@@ -13,13 +16,14 @@ const Login = () => {
         email: "shawon.cit.bd@gmail.com",
         password: "123456789",
       });
-      console.log(data);
+   
       if (!data.data.isEmailVarified) {
         console.log("Please Varify your email");
       } else if (data.data.role == "user") {
         console.log("You do  not have permission to enter");
       } else {
         localStorage.setItem("user", JSON.stringify(data.data));
+        diapatch(activeUser(data.data))
         navigate("/home");
       }
     } catch (error) {
