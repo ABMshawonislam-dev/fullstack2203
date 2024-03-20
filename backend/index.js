@@ -5,12 +5,13 @@ const app = express();
 const secureApi = require("./middleware/secureApi");
 const routes = require("./routes");
 const mongoConfig = require("./config/mongoConfig");
+const path = require("path");
 
 mongoConfig();
 app.use(cors());
 app.use(express.json());
 app.use(routes);
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // app.post("/api/v1/auth/registration", secureApi, (req, res) => {
 //   console.log(req.body);
 // });

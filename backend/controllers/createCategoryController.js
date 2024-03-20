@@ -1,21 +1,20 @@
-let Category = require("../model/catModel");
+const User = require("../model/userModel");
+const nodemailer = require("nodemailer");
+var jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-let createCategoryContoller = async (req, res) => {
-  const { name, ownerId } = req.body;
+let changeController = async (req, res) => {
+  const { token, password } = req.body;
 
-  let existingName = await Category.findOne({ name: name });
+  //   console.log(token,password)
+  var decoded = jwt.verify(token, "shhhhh");
 
-  if (existingName) {
-    res.send({ error: "already exists" });
-  } else {
-    const cat = new Category({
-      name: name,
-      ownerId: ownerId,
-    });
+  console.log(decoded.email);
 
-    cat.save();
-    res.send({ success: "Category created. Wait for admin approval" });
-  }
+  bcrypt.hash(password, 10, async function (err, hash) {
+    await User.findOneAndUpdate({ email: decoded.email }, { password: hash });
+    res.send({ success: "Password Change" });
+  });
 };
 
-module.exports = createCategoryContoller;
+module.exports = changeController;

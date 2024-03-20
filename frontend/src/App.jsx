@@ -16,6 +16,7 @@ import Home from "./pages/Home";
 import Category from "./pages/Category";
 import SubCategory from "./pages/SubCategory";
 import ViewCat from "./pages/ViewCat";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   const router = createBrowserRouter(
@@ -30,9 +31,10 @@ function App() {
         <Route path="/forgotpass" element={<ForgotPass />}></Route>
         <Route path="/changepass/:token" element={<ChangePass />}></Route>
         <Route path="/dashboard" element={<Home />}>
-        <Route path="createcat" element={<Category />}></Route>
-        <Route path="createsubcat" element={<SubCategory />}></Route>
-        <Route path="viewcat" element={<ViewCat />}></Route>
+          <Route path="createcat" element={<Category />}></Route>
+          <Route path="createsubcat" element={<SubCategory />}></Route>
+          <Route path="viewcat" element={<ViewCat />}></Route>
+          <Route path="addproduct" element={<AddProduct />}></Route>
         </Route>
       </Route>
     )

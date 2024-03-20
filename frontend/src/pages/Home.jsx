@@ -4,7 +4,7 @@ import {
   MailOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { Menu,Col, Row } from "antd";
+import { Menu, Col, Row } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
 
 function getItem(label, key, icon, children, type) {
@@ -20,11 +20,10 @@ function getItem(label, key, icon, children, type) {
 const Home = () => {
   let user = JSON.parse(localStorage.getItem("user"));
   console.log(user);
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const onClick = (e) => {
     console.log("click ", e);
-    navigate(e.key)
-
+    navigate(e.key);
   };
   const items = [
     user.role == "admin" &&
@@ -36,7 +35,7 @@ const Home = () => {
       type: "divider",
     },
     getItem("Product", "sub2", <AppstoreOutlined />, [
-      getItem("Add Product", "5"),
+      getItem("Add Product", "/dashboard/addproduct"),
       getItem("View Product", "6"),
     ]),
     {
@@ -59,21 +58,19 @@ const Home = () => {
   return (
     <Row>
       <Col span={6}>
-      <Menu
-      onClick={onClick}
-      style={{
-        width: 256,
-      }}
-
-      mode="inline"
-      items={items}
-    />
+        <Menu
+          onClick={onClick}
+          style={{
+            width: 256,
+          }}
+          mode="inline"
+          items={items}
+        />
       </Col>
       <Col span={18}>
-        <Outlet/>
+        <Outlet />
       </Col>
     </Row>
-   
   );
 };
 

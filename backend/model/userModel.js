@@ -17,9 +17,9 @@ const userSchema = new Schema({
   otp: {
     type: String,
   },
-  isEmailVarified:{
+  isEmailVarified: {
     type: Boolean,
-    default: false
+    default: false,
   },
   role: {
     type: String,
