@@ -94,6 +94,45 @@ const AddProduct = () => {
       </Form.Item>
 
       <Form.Item
+        label="Regular Price"
+        name="ragularprice"
+        rules={[
+          {
+            required: true,
+            message: "Please input your regular price!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Sale Price"
+        name="saleprice"
+        rules={[
+          {
+            required: true,
+            message: "Please input your sale price!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Slug"
+        name="slug"
+        rules={[
+          {
+            required: true,
+            message: "Please input your regular price!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
         wrapperCol={{
           offset: 8,
           span: 16,
