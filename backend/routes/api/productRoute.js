@@ -4,6 +4,7 @@ const createCategoryContoller = require("../../controllers/createCategoryControl
 const allCatContoller = require("../../controllers/allCatController");
 const createSubCategoryContoller = require("../../controllers/createSubCategoryController");
 const createProductController = require("../../controllers/createProductController");
+const allProContoller = require("../../controllers/allProController");
 const _ = express.Router();
 
 const storage = multer.diskStorage({
@@ -24,5 +25,6 @@ _.post("/createsubcategory", createSubCategoryContoller);
 _.post("/createproduct", upload.single("avatar"), createProductController);
 
 _.get("/allcat", allCatContoller);
+_.get("/allpro", allProContoller);
 
 module.exports = _;

@@ -3,10 +3,12 @@ import { Button, Checkbox, Form, Input } from "antd";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
-
+import slugify from "react-slugify";
+import useToken from "antd/es/theme/useToken";
 const AddProduct = () => {
   let [description, setDescription] = useState("");
   let [image, setImage] = useState({});
+  let [slugtext, setSlugText] = useState("asd");
   const onFinish = async (values) => {
     // console.log("Success:", values);
     await axios.post(
@@ -15,6 +17,9 @@ const AddProduct = () => {
         name: values.name,
         description: description,
         avatar: image,
+        regularprice: values.ragularprice,
+        saleprice: values.saleprice,
+        slug: slugtext,
       },
       {
         headers: {
@@ -30,6 +35,13 @@ const AddProduct = () => {
   let handleChange = (e) => {
     setImage(e.target.files[0]);
   };
+
+  let handleSlugText = (e) => {
+    console.log(e.target.value);
+    setSlugText(slugify(e.target.value));
+    // setSlugText(slugify(e.target.value));
+  };
+
   return (
     <Form
       name="basic"
@@ -59,9 +71,8 @@ const AddProduct = () => {
           },
         ]}
       >
-        <Input />
+        <Input onChange={handleSlugText} />
       </Form.Item>
-
       <CKEditor
         editor={ClassicEditor}
         data="<p>Hello from CKEditor&nbsp;5!</p>"
@@ -92,7 +103,6 @@ const AddProduct = () => {
       >
         <Input onChange={handleChange} type="file" />
       </Form.Item>
-
       <Form.Item
         label="Regular Price"
         name="ragularprice"
@@ -105,7 +115,6 @@ const AddProduct = () => {
       >
         <Input />
       </Form.Item>
-
       <Form.Item
         label="Sale Price"
         name="saleprice"
@@ -119,18 +128,8 @@ const AddProduct = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item
-        label="Slug"
-        name="slug"
-        rules={[
-          {
-            required: true,
-            message: "Please input your regular price!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+      <span>Slug:</span>
+      <input style={{ width: "100%" }} disabled value={slugtext} />
 
       <Form.Item
         wrapperCol={{

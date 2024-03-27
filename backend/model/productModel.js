@@ -13,6 +13,16 @@ const productSchema = new Schema({
   image: {
     type: String,
   },
+  regularprice: {
+    type: Number,
+    required: true,
+  },
+  saleprice: {
+    type: Number,
+  },
+  slug: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema);
