@@ -4,7 +4,6 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 import slugify from "react-slugify";
-import useToken from "antd/es/theme/useToken";
 const AddProduct = () => {
   let [description, setDescription] = useState("");
   let [image, setImage] = useState({});
