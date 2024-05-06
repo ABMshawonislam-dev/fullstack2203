@@ -18,7 +18,7 @@ const SubCategory = () => {
         let data = await axios.post("http://localhost:8000/api/v1/product/createsubcategory",{
             name: values.name,
             ownerId: userInfo,
-            catId:catid
+            categoryId:catid
         })
 
         console.log(data)

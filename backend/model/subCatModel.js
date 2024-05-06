@@ -13,7 +13,7 @@ const catSubSchema = new Schema({
     ref: "User",
   },
   
-  catId:{
+  categoryId:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
   },

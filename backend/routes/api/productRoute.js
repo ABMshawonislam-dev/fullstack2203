@@ -5,6 +5,7 @@ const allCatContoller = require("../../controllers/allCatController");
 const createSubCategoryContoller = require("../../controllers/createSubCategoryController");
 const createProductController = require("../../controllers/createProductController");
 const allProContoller = require("../../controllers/allProController");
+const singleCat = require("../../controllers/singleCat");
 const createVariantController = require("../../controllers/createVariantController");
 const _ = express.Router();
 
@@ -28,5 +29,6 @@ _.post("/createvariant", upload.single("varinatavatar"), createVariantController
 
 _.get("/allcat", allCatContoller);
 _.get("/allpro", allProContoller);
+_.get("/singlecat", singleCat);
 
 module.exports = _;

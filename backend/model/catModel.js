@@ -18,6 +18,11 @@ const catSchema = new Schema({
     enum: ["waiting", "rejected", "approved"],
     default: "waiting",
   },
+
+  subcatlist : [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Subcategory",
+  }]
 });
 
 module.exports = mongoose.model("Category", catSchema);
