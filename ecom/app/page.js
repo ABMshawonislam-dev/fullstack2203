@@ -1,13 +1,16 @@
-import Category from "@/components/category";
-import Product from "@/components/product";
 
+import Banner from '@/components/banner';
+import Categoryname from '@/components/categoryname';
+import Product from '@/components/product';
 
 export default function Home() {
   return (
     <>
-      <Category/>
-      <h1>Product</h1>
+      
+      <Banner/>
+      <Categoryname/>
       <Product/>
+   
     </>
   );
 }
