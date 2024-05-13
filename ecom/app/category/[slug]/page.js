@@ -1,4 +1,5 @@
 import React from 'react'
+import Table from 'react-bootstrap/Table';
 
 async function getData(id) {
     const res = await fetch(`http://localhost:8000/api/v1/product/singlecat?slug=${id}`)
