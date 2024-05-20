@@ -19,6 +19,7 @@ import ViewCat from "./pages/ViewCat";
 import AddProduct from "./pages/AddProduct";
 import ViewProduct from "./pages/ViewProduct";
 import AddVariant from "./pages/AddVariant";
+import AddDiscount from "./pages/AddDiscount";
 
 function App() {
   const router = createBrowserRouter(
@@ -39,6 +40,7 @@ function App() {
           <Route path="addproduct" element={<AddProduct />}></Route>
           <Route path="viewproduct" element={<ViewProduct />}></Route>
           <Route path="addvariant" element={<AddVariant />}></Route>
+          <Route path="adddiscount" element={<AddDiscount />}></Route>
         </Route>
       </Route>
     )

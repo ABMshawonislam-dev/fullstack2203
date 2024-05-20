@@ -4,7 +4,7 @@ let cartController = async (req, res) => {
   
     let {productId,quantity,carOwnerId} = req.body
 
-    console.log(req.query)
+   
 
     let exixtingCartProduct = await Cart.find({productId:productId})
 
@@ -12,7 +12,7 @@ let cartController = async (req, res) => {
         if(req.query.type == "incre"){
             let data = await Cart.findOneAndUpdate({_id:exixtingCartProduct[0]._id},{quantity:exixtingCartProduct[0].quantity+1},{new:true})
 
-        }else{
+        }else {
             let data = await Cart.findOneAndUpdate({_id:exixtingCartProduct[0]._id},{quantity:exixtingCartProduct[0].quantity-1},{new:true})
 
         }
