@@ -20,6 +20,7 @@ import AddProduct from "./pages/AddProduct";
 import ViewProduct from "./pages/ViewProduct";
 import AddVariant from "./pages/AddVariant";
 import AddDiscount from "./pages/AddDiscount";
+import AffiliateProduct from "./pages/AffiliateProduct";
 
 function App() {
   const router = createBrowserRouter(
@@ -41,6 +42,7 @@ function App() {
           <Route path="viewproduct" element={<ViewProduct />}></Route>
           <Route path="addvariant" element={<AddVariant />}></Route>
           <Route path="adddiscount" element={<AddDiscount />}></Route>
+          <Route path="affiliateproduct" element={<AffiliateProduct />}></Route>
         </Route>
       </Route>
     )

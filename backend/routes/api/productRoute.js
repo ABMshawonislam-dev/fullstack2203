@@ -10,6 +10,7 @@ const createVariantController = require("../../controllers/createVariantControll
 const cartController = require("../../controllers/cartController");
 const allCartContoller = require("../../controllers/allCat");
 const cuponController = require("../../controllers/createCupon");
+const singleProContoller = require("../../controllers/singlePro");
 const _ = express.Router();
 
 const storage = multer.diskStorage({
@@ -36,5 +37,6 @@ _.get("/allcat", allCatContoller);
 _.get("/allpro", allProContoller);
 _.get("/singlecat", singleCat);
 _.get("/allcart", allCartContoller);
+_.get("/singlepro/:slug", singleProContoller);
 
 module.exports = _;

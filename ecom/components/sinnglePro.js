@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -28,7 +29,7 @@ const SinnglePro = ({item}) => {
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src={`http://localhost:8000${item.image}`} />
     <Card.Body>
-      <Card.Title>{item.name}</Card.Title>
+      <Card.Title><Link href={`/product/${item.slug}`}>{JSON.stringify(item.name.split(" ").join("-"))}</Link></Card.Title>
       <Card.Text dangerouslySetInnerHTML={{ __html: item.description }}>
         
       </Card.Text>

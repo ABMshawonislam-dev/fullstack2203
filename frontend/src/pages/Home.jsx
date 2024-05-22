@@ -56,6 +56,14 @@ const Home = () => {
       getItem("Add Discount", "/dashboard/adddiscount"),
       getItem("View Discount", "14"),
     ]),
+    {
+      type: "divider",
+    },
+    getItem("Affliate", "sub6", <SettingOutlined />, [
+      getItem("Product List", "/dashboard/affiliateproduct"),
+      
+    ]),
+
   ];
   return (
     <Row>
